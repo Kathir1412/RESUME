@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>R Kathiravan - .NET Developer Resume</title>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --primary: #0f172a;
+            --secondary: #2563eb;
+            --text-dark: #1e293b;
+            --text-muted: #475569;
+            --border: #cbd5e1;
+            --bg-tag: #f1f5f9;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            color: var(--text-dark);
+            background-color: #e2e8f0;
+            line-height: 1.38;
+            font-size: 10pt;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        .resume-page {
+            width: 210mm;
+            height: 297mm;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 12mm 14mm;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        header {
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 8px;
+            margin-bottom: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .header-left h1 {
+            font-size: 20pt;
+            font-weight: 800;
+            color: var(--primary);
+            letter-spacing: -0.5px;
+            text-transform: uppercase;
+            line-height: 1;
+        }
+
+        .header-left .title {
+            font-size: 11pt;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-top: 4px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .header-right {
+            text-align: right;
+            font-size: 8.5pt;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+
+        .header-right a {
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .header-right a:hover {
+            text-decoration: underline;
+        }
+
+        .main-layout {
+            display: flex;
+            gap: 14px;
+            flex: 1;
+        }
+
+        .left-col {
+            flex: 1.85;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .right-col {
+            flex: 1.15;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        section {
+            width: 100%;
+        }
+
+        h2 {
+            font-size: 9.5pt;
+            font-weight: 800;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            border-bottom: 1.5px solid var(--border);
+            padding-bottom: 2px;
+            margin-bottom: 6px;
+        }
+
+        p {
+            font-size: 8.8pt;
+            color: var(--text-dark);
+            text-align: justify;
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+
+        .item-title {
+            font-size: 9.5pt;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .item-sub {
+            font-size: 8.8pt;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 4px;
+        }
+
+        .item-date {
+            font-size: 8.5pt;
+            font-weight: 600;
+            color: var(--text-muted);
+        }
+
+        .tech-inline {
+            font-size: 8pt;
+            font-weight: 600;
+            color: var(--secondary);
+            margin-bottom: 4px;
+        }
+
+        ul {
+            padding-left: 13px;
+        }
+
+        li {
+            font-size: 8.5pt;
+            color: var(--text-dark);
+            margin-bottom: 3.5px;
+            line-height: 1.35;
+        }
+
+        li::marker {
+            color: var(--secondary);
+        }
+
+        .skill-group {
+            margin-bottom: 7px;
+        }
+
+        .skill-group-title {
+            font-size: 8.5pt;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 3px;
+        }
+
+        .skills-flex {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px;
+        }
+
+        .tag {
+            background-color: var(--bg-tag);
+            color: var(--text-dark);
+            font-size: 7.5pt;
+            font-weight: 600;
+            padding: 2.5px 6px;
+            border-radius: 3px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .edu-block, .lang-block {
+            font-size: 8.5pt;
+        }
+
+        .edu-degree {
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .edu-school {
+            color: var(--text-muted);
+        }
+
+        .lang-item {
+            margin-bottom: 3px;
+        }
+
+        @media print {
+            body {
+                background: none;
+                padding: 0;
+            }
+            .resume-page {
+                width: 210mm;
+                height: 297mm;
+                padding: 10mm 12mm;
+                margin: 0;
+                box-shadow: none;
+            }
+            a {
+                text-decoration: none !important;
+                color: var(--secondary) !important;
+            }
+            @page {
+                size: A4;
+                margin: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="resume-page">
+        <!-- HEADER -->
+        <header>
+            <div class="header-left">
+                <h1>R. Kathiravan</h1>
+                <div class="title">.NET Developer</div>
+            </div>
+            <div class="header-right">
+                &#128204; Thoothukudi, Tamil Nadu, India<br>
+                &#128222; +91 9940874751 | &#128231; kathir122002@gmail.com<br>
+                &#128279; <a href="https://linkedin.com/in/r-kathiravan-824836325" target="_blank">linkedin.com/in/r-kathiravan-824836325</a><br>
+                &#128187; <a href="https://github.com/Kathir1412" target="_blank">github.com/Kathir1412</a>
+            </div>
+        </header>
+
+        <!-- MAIN TWO-COLUMN CONTENT -->
+        <div class="main-content main-layout">
+            
+            <!-- LEFT COLUMN -->
+            <div class="left-col">
+                
+                <!-- PROFESSIONAL SUMMARY -->
+                <section>
+                    <h2>Professional Summary</h2>
+                    <p>
+                        Results-driven <strong>.NET Developer</strong> with 1+ years of experience specializing in enterprise <strong>ERP development</strong>, database engineering, and comprehensive <strong>production support</strong>. Proficient in building scalable web applications using <strong>C#</strong>, <strong>ASP.NET Core MVC</strong>, <strong>Entity Framework Core</strong>, and <strong>SQL Server</strong>. Strong expertise in applying software design patterns including <strong>Clean Architecture</strong> and <strong>Repository Pattern</strong> for maintainable code structures. Skilled in technical <strong>debugging</strong>, query optimization, and hands-on <strong>client implementation</strong> to deliver reliable backend business solutions.
+                    </p>
+                </section>
+
+                <!-- WORK EXPERIENCE -->
+                <section>
+                    <h2>Work Experience</h2>
+                    <div class="item-header">
+                        <span class="item-title">.NET Developer</span>
+                        <span class="item-date">June 2025 – Present</span>
+                    </div>
+                    <div class="item-sub">Logic Technologies | Thoothukudi, India</div>
+                    <ul>
+                        <li>Developed and customized enterprise ERP software applications using C#, ASP.NET, and ASP.NET Core MVC to streamline daily business processes.</li>
+                        <li>Designed relational database schemas, Stored Procedures, Views, and Triggers in SQL Server to ensure transactional data integrity.</li>
+                        <li>Resolved critical production issues, identified software bugs, and maintained steady system operational performance.</li>
+                        <li>Implemented specialized functionality across core business modules including Inventory, Sales, Purchase, Finance, and Administration.</li>
+                        <li>Provided end-to-end client implementation, user onboarding support, setup assistance, and user acceptance testing (UAT).</li>
+                        <li>Optimized database queries and stored procedures to reduce system execution delays and enhance performance.</li>
+                        <li>Supported technical troubleshooting, system maintenance, and code refactoring tasks across existing multi-tier software environments.</li>
+                    </ul>
+                </section>
+
+                <!-- PROJECTS -->
+                <section>
+                    <h2>Projects</h2>
+                    
+                    <div class="item-header">
+                        <span class="item-title">AMS Home Care Attendance Management System</span>
+                    </div>
+                    <div class="tech-inline">
+                        ASP.NET Core MVC, C#, Entity Framework Core, SQL Server, Bootstrap 5, ASP.NET Identity, Repository Pattern, Unit of Work, Clean Architecture
+                    </div>
+                    <ul>
+                        <li>Designed and developed a responsive Home Care Attendance Management System utilizing ASP.NET Core MVC, Entity Framework Core, and SQL Server.</li>
+                        <li>Implemented Clean Architecture principles alongside Repository Pattern and Unit of Work to maintain strict separation of concerns.</li>
+                        <li>Configured secure Role-Based Authentication and user access levels using ASP.NET Identity.</li>
+                        <li>Built interactive functional modules for Employee Management, Patient Management, Shift Management, Attendance Tracking, Leave Management, Reports, and Dashboard.</li>
+                        <li>Crafted a fully responsive UI utilizing Bootstrap 5 to deliver seamless navigation across mobile and desktop devices.</li>
+                        <li><strong>GitHub:</strong> <a href="https://github.com/Kathir1412/AMS-Home-Care-Management-System" target="_blank">AMS-Home-Care-Management-System</a></li>
+                    </ul>
+
+                    <div class="item-header" style="margin-top: 6px;">
+                        <span class="item-title">ERP Management System</span>
+                    </div>
+                    <div class="tech-inline">
+                        C#, ASP.NET, SQL Server, Crystal Reports
+                    </div>
+                    <ul>
+                        <li>Executed specialized ERP customization across Inventory, Sales, Purchase, Finance, and Administration modules.</li>
+                        <li>Designed SQL Server database structures and integrated automated business reporting features utilizing Crystal Reports for operational analysis.</li>
+                    </ul>
+                </section>
+
+            </div>
+
+            <!-- RIGHT COLUMN -->
+            <div class="right-col">
+                
+                <!-- TECHNICAL SKILLS -->
+                <section>
+                    <h2>Technical Skills</h2>
+                    
+                    <div class="skill-group">
+                        <div class="skill-group-title">Programming Languages</div>
+                        <div class="skills-flex">
+                            <span class="tag">C#</span>
+                            <span class="tag">SQL</span>
+                            <span class="tag">HTML5</span>
+                            <span class="tag">CSS3</span>
+                            <span class="tag">JavaScript</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-group">
+                        <div class="skill-group-title">Frameworks</div>
+                        <div class="skills-flex">
+                            <span class="tag">ASP.NET Core MVC</span>
+                            <span class="tag">Entity Framework Core</span>
+                            <span class="tag">ASP.NET Framework</span>
+                            <span class="tag">ASP.NET Identity</span>
+                            <span class="tag">Bootstrap 5</span>
+                            <span class="tag">REST API</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-group">
+                        <div class="skill-group-title">Database</div>
+                        <div class="skills-flex">
+                            <span class="tag">SQL Server</span>
+                            <span class="tag">Stored Procedures</span>
+                            <span class="tag">Views</span>
+                            <span class="tag">Triggers</span>
+                           
+                            <span class="tag">Query Optimization</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-group">
+                        <div class="skill-group-title">Architecture</div>
+                        <div class="skills-flex">
+                            <span class="tag">Clean Architecture</span>
+                            <span class="tag">Repository Pattern</span>
+                            <span class="tag">Unit of Work</span>
+                            <span class="tag">Dependency Injection</span>
+                            <span class="tag">MVC Pattern</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-group">
+                        <div class="skill-group-title">Tools</div>
+                        <div class="skills-flex">
+                            <span class="tag">Visual Studio</span>
+                            <span class="tag">Visual Studio Code</span>
+                            <span class="tag">SSMS</span>
+                            <span class="tag">Git</span>
+                            <span class="tag">GitHub</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- EDUCATION -->
+                <section style="margin-top: 6px;">
+                    <h2>Education</h2>
+                    <div class="edu-block">
+                        <div class="edu-degree">B.Sc. Mathematics</div>
+                        <div class="edu-school">Aditanar College</div>
+                        <div class="item-date">2020 – 2023</div>
+                    </div>
+                </section>
+
+                <!-- LANGUAGES -->
+                <section style="margin-top: 6px;">
+                    <h2>Languages</h2>
+                    <div class="lang-block">
+                        <div class="lang-item"><strong>Tamil</strong> — Native</div>
+                        <div class="lang-item"><strong>English</strong> — Professional Working Proficiency</div>
+                    </div>
+                </section>
+
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
